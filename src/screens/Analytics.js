@@ -1,8 +1,11 @@
+import { Box } from '@mui/material'
 import React from 'react'
 
 function Analytics() {
   return (
-    <div>Analytics</div>
+    <Box sx={{ ml: {sm: '240px'} }}>
+      Analytics
+    </Box>
   )
 }
 

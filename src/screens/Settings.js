@@ -1,8 +1,12 @@
 import React from 'react'
+import { Box } from '@mui/material'
+
 
 function Settings() {
   return (
-    <div>Settings</div>
+    <Box sx={{ ml: {sm: '240px'} }}>
+      Settings
+    </Box>
   )
 }
 

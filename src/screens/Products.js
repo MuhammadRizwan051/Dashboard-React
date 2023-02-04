@@ -1,8 +1,11 @@
+import { Box } from '@mui/material'
 import React from 'react'
 
 function Products() {
   return (
-    <div>Products</div>
+    <Box sx={{ ml: {sm: '240px'} }}>
+      Products
+    </Box>
   )
 }
 

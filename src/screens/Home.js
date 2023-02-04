@@ -1,8 +1,11 @@
+import { Box } from '@mui/system'
 import React from 'react'
 
 function Home() {
   return (
-    <div>Home</div>
+    <Box sx={{ ml: { sm: '240px' }, backgroundColor: 'lightgrey' }}>
+      Home
+    </Box>
   )
 }
 

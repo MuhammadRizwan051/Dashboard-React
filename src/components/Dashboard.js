@@ -6,6 +6,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
+import HomeIcon from '@mui/icons-material/Home';
+import Inventory2Icon from '@mui/icons-material/Inventory2';
+import SettingsIcon from '@mui/icons-material/Settings';
+import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -17,6 +21,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const drawerWidth = 240;
 
@@ -37,47 +42,34 @@ function Dashboard(props) {
                     {
                         route: '/',
                         name: 'Home',
-                        icon: () => <InboxIcon />
+                        icon: <HomeIcon sx={{ color: 'black' }} />
                     },
                     {
                         route: 'products',
                         name: 'Products',
-                        icon: () => <InboxIcon />
+                        icon: <Inventory2Icon sx={{ color: 'black' }} />
                     },
                     {
                         route: 'settings',
                         name: 'Settings',
-                        icon: () => <InboxIcon />
+                        icon: <SettingsIcon sx={{ color: 'black' }} />
                     },
                     {
                         route: 'analytics',
                         name: 'Analytics',
-                        icon: () => <InboxIcon />
+                        icon: <LeaderboardIcon sx={{ color: 'black' }} />
                     },
                 ].map((text, index) => (
                     <ListItem key={index} disablePadding>
-                        <ListItemButton onClick={() => navigate(text.name)}>
-                            {/* <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon> */}
+                        <ListItemButton onClick={() => navigate(text.route)}>
+                            <ListItemIcon>
+                                {text.icon}
+                            </ListItemIcon>
                             <ListItemText primary={text.name} />
                         </ListItemButton>
                     </ListItem>
                 ))}
             </List>
-            {/* <Divider /> */}
-            {/* <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List> */}
         </div>
     );
 
@@ -91,13 +83,15 @@ function Dashboard(props) {
             <AppBar
                 position="fixed"
                 sx={{
+                    backgroundColor: 'white',
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
                 }}
             >
+
                 <Toolbar>
                     <IconButton
-                        color="inherit"
+                        color="black"
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
@@ -105,9 +99,10 @@ function Dashboard(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div">
+                    <Navbar />
+                    {/* <Typography variant="h6" noWrap component="div">
                         Responsive drawer
-                    </Typography>
+                    </Typography> */}
                 </Toolbar>
             </AppBar>
             <Box
@@ -144,36 +139,23 @@ function Dashboard(props) {
             </Box>
             <Box
                 component="main"
-                sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+                sx={{ flexGrow: 1, width: { sm: `calc(100% - ${drawerWidth}px)` },backgroundColor: 'lightgrey', }}
             >
                 <Toolbar />
                 {/* <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography> */}
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
+                    enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
+                    imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
+                    Convallis convallis tellus id interdum velit laoreet id donec ultrices.
+                    Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+                    adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
+                    nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
+                    leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
+                    feugiat vivamus at augue. At augue eget arcu dictum varius duis at
+                    consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
+                    sapien faucibus et molestie ac.
+                </Typography> */}
             </Box>
         </Box>
     );
